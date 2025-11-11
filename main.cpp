@@ -138,7 +138,7 @@ bool contiene_subcadena_insensible(std::string texto, std::string patron) {
 // Búsqueda por campo
 
 // Búsqueda por título
-int buscar_por_titulo(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
+int buscar_por_titulo_cancion(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
     int resultados = 0;
     for (size_t i = 0; i < catalogo->tam(); i++) {
         Cancion c = catalogo->at(i);
@@ -174,7 +174,7 @@ int buscar_por_album(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
 }
 
 // Búsqueda por género
-int buscar_por_genero(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
+int buscar_por_genero_cancion(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
     int resultados = 0;
     for (size_t i = 0; i < catalogo->tam(); i++) {
         Cancion c = catalogo->at(i);
@@ -247,13 +247,13 @@ void menu_busquedas(Dinarray<Cancion>* cat) {
 
             int hits = 0;
             if (opcion == 1) {
-                hits = buscar_por_titulo(cat, q);
+                hits = buscar_por_titulo_cancion(cat, q);
             } else {
                 if (opcion == 2) {
                     hits = buscar_por_album(cat, q);
                 } else {
                     if (opcion == 3) {
-                        hits = buscar_por_genero(cat, q);
+                        hits = buscar_por_genero_cancion(cat, q);
                     } else {
                         if (opcion == 4) {
                             hits = buscar_por_grupo(cat, q);
