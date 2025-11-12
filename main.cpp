@@ -62,7 +62,7 @@ public:
 
     T& at_modificable(size_t pos) {
         if (pos >= size) {
-            throw std::out_of_range("Posición inválida");
+            throw std::out_of_range("Posicion invalida");
         }
         return data[pos];  // ← DEVUELVE REFERENCIA
     }
@@ -152,10 +152,10 @@ int buscar_por_titulo_cancion(Dinarray<Cancion>* catalogo, std::string textoBusc
         // Comprueba si el título contiene el texto buscado
         if (contiene_subcadena_insensible(c.titulo, textoBuscado)) {
             if (resultados == 0) {
-                std::cout << "\nResultados por Título:\n";
+                std::cout << "\nResultados por Titulo:\n";
             }
-            std::cout << " - [" << c.titulo << "]  Álbum: " << c.album
-                      << "  Grupo: " << c.grupo << "  Género: " << c.genero << "\n";
+            std::cout << " - [" << c.titulo << "]  Album: " << c.album
+                      << "  Grupo: " << c.grupo << "  Genero: " << c.genero << "\n";
             resultados++;
         }
     }
@@ -170,10 +170,10 @@ int buscar_por_album(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
         // Comprueba si el álbum contiene el texto buscado
         if (contiene_subcadena_insensible(c.album, textoBuscado)) {
             if (resultados == 0) {
-                std::cout << "\nResultados por Álbum:\n";
+                std::cout << "\nResultados por Album:\n";
             }
-            std::cout << " - [" << c.titulo << "]  Álbum: " << c.album
-                      << "  Grupo: " << c.grupo << "  Género: " << c.genero << "\n";
+            std::cout << " - [" << c.titulo << "]  Album: " << c.album
+                      << "  Grupo: " << c.grupo << "  Genero: " << c.genero << "\n";
             resultados++;
         }
     }
@@ -188,10 +188,10 @@ int buscar_por_genero_cancion(Dinarray<Cancion>* catalogo, std::string textoBusc
         // Comprueba si el género contiene el texto buscado
         if (contiene_subcadena_insensible(c.genero, textoBuscado)) {
             if (resultados == 0) {
-                std::cout << "\nResultados por Género:\n";
+                std::cout << "\nResultados por Genero:\n";
             }
-            std::cout << " - [" << c.titulo << "]  Álbum: " << c.album
-                      << "  Grupo: " << c.grupo << "  Género: " << c.genero << "\n";
+            std::cout << " - [" << c.titulo << "]  Album: " << c.album
+                      << "  Grupo: " << c.grupo << "  Genero: " << c.genero << "\n";
             resultados++;
         }
     }
@@ -208,7 +208,7 @@ int buscar_por_grupo(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
             if (resultados == 0) {
                 std::cout << "\nResultados por Grupo:\n";
             }
-            std::cout << " - [" << c.titulo << "]  Álbum: " << c.album
+            std::cout << " - [" << c.titulo << "]  Album: " << c.album
                       << "  Grupo: " << c.grupo << "  Género: " << c.genero << "\n";
             resultados++;
         }
@@ -301,8 +301,8 @@ int buscar_por_titulo(Dinarray<Pelicula>* catalogo, std::string textoBuscado) {
     for (size_t i = 0; i < catalogo->tam(); i++) {
         Pelicula p = catalogo->at(i);
         if (contiene_subcadena_insensible(p.titulo, textoBuscado)) {
-            if (resultados == 0) std::cout << "\nResultados por Título:\n";
-            std::cout << " - [" << p.titulo << "]  Género: " << p.genero
+            if (resultados == 0) std::cout << "\nResultados por Titulo:\n";
+            std::cout << " - [" << p.titulo << "]  Genero: " << p.genero
                       << "  Calidad: " << p.calidad
                       << "  Estado: " << (p.disponible ? "Disponible" : "Alquilada") << "\n";
             resultados++;
@@ -316,8 +316,8 @@ int buscar_por_genero(Dinarray<Pelicula>* catalogo, std::string textoBuscado) {
     for (size_t i = 0; i < catalogo->tam(); i++) {
         Pelicula p = catalogo->at(i);
         if (contiene_subcadena_insensible(p.genero, textoBuscado)) {
-            if (resultados == 0) std::cout << "\nResultados por Género:\n";
-            std::cout << " - [" << p.titulo << "]  Género: " << p.genero
+            if (resultados == 0) std::cout << "\nResultados por Genero:\n";
+            std::cout << " - [" << p.titulo << "]  Genero: " << p.genero
                       << "  Calidad: " << p.calidad
                       << "  Estado: " << (p.disponible ? "Disponible" : "Alquilada") << "\n";
             resultados++;
@@ -332,7 +332,7 @@ int buscar_por_calidad(Dinarray<Pelicula>* catalogo, std::string textoBuscado) {
         Pelicula p = catalogo->at(i);
         if (contiene_subcadena_insensible(p.calidad, textoBuscado)) {
             if (resultados == 0) std::cout << "\nResultados por Calidad:\n";
-            std::cout << " - [" << p.titulo << "]  Género: " << p.genero
+            std::cout << " - [" << p.titulo << "]  Genero: " << p.genero
                       << "  Calidad: " << p.calidad
                       << "  Estado: " << (p.disponible ? "Disponible" : "Alquilada") << "\n";
             resultados++;
@@ -348,14 +348,14 @@ void alquilar_pelicula(Dinarray<Pelicula>* catalogo, std::string tituloBuscado) 
         if (contiene_subcadena_insensible(p.titulo, tituloBuscado)) {
             if (p.disponible) {
                 p.alquilar();
-                std::cout << "Película '" << p.titulo << "' alquilada correctamente.\n";
+                std::cout << "Pelicula '" << p.titulo << "' alquilada correctamente.\n";
             } else {
-                std::cout << "La película '" << p.titulo << "' ya está alquilada.\n";
+                std::cout << "La pelicula '" << p.titulo << "' ya esta alquilada.\n";
             }
             return;
         }
     }
-    std::cout << "Película no encontrada.\n";
+    std::cout << "Pelicula no encontrada.\n";
 }
 
 // === CARGA DE DATOS ===
@@ -376,14 +376,14 @@ void menu_busquedas_pelicula(Dinarray<Pelicula>* cat) {
     bool continuar = true;
 
     while (continuar) {
-        std::cout << "\n--- Buscador de Películas ---\n";
-        std::cout << "1) Buscar por título\n";
-        std::cout << "2) Buscar por género\n";
+        std::cout << "\n--- Buscador de Peliculas ---\n";
+        std::cout << "1) Buscar por titulo\n";
+        std::cout << "2) Buscar por genero\n";
         std::cout << "3) Buscar por calidad\n";
-        std::cout << "4) Alquilar película\n";
-        std::cout << "5) Mostrar catálogo completo\n";
+        std::cout << "4) Alquilar pelicula\n";
+        std::cout << "5) Mostrar catalogo completo\n";
         std::cout << "0) Salir\n";
-        std::cout << "Opción: ";
+        std::cout << "Opcion: ";
         std::cin >> opcion;
         std::cin.ignore(1000, '\n');
 
@@ -394,7 +394,7 @@ void menu_busquedas_pelicula(Dinarray<Pelicula>* cat) {
             int hits = 0;
 
             if (opcion >= 1 && opcion <= 3) {
-                std::cout << "Introduce texto de búsqueda: ";
+                std::cout << "Introduce texto de busqueda: ";
                 std::getline(std::cin, q);
             }
 
@@ -403,21 +403,21 @@ void menu_busquedas_pelicula(Dinarray<Pelicula>* cat) {
                 case 2: hits = buscar_por_genero(cat, q); break;
                 case 3: hits = buscar_por_calidad(cat, q); break;
                 case 4:
-                    std::cout << "Título de la película a alquilar: ";
+                    std::cout << "Titulo de la pelicula a alquilar: ";
                     std::getline(std::cin, q);
                     alquilar_pelicula(cat, q);
                     break;
                 case 5:
-                    std::cout << "\n=== CATÁLOGO COMPLETO ===\n";
+                    std::cout << "\n=== CATALOGO COMPLETO ===\n";
                     for (size_t i = 0; i < cat->tam(); i++) {
                         Pelicula p = cat->at(i);
-                        std::cout << " - [" << p.titulo << "]  Género: " << p.genero
+                        std::cout << " - [" << p.titulo << "]  Genero: " << p.genero
                                   << "  Calidad: " << p.calidad
                                   << "  Estado: " << (p.disponible ? "Disponible" : "Alquilada") << "\n";
                     }
                     break;
                 default:
-                    std::cout << "Opción inválida.\n";
+                    std::cout << "Opcion invalida.\n";
             }
 
             if (hits == 0 && opcion >= 1 && opcion <= 3) {
@@ -435,12 +435,12 @@ void menu_general() {
     while (continuar) {
         std::cout << "\n";
         std::cout << "======================================\n";
-        std::cout << "     SISTEMA DE GESTIÓN MULTIMEDIA    \n";
+        std::cout << "     SISTEMA DE GESTION MULTIMEDIA    \n";
         std::cout << "======================================\n";
-        std::cout << "1) Módulo de Canciones\n";
-        std::cout << "2) Módulo de Películas\n";
+        std::cout << "1) Modulo de Canciones\n";
+        std::cout << "2) Modulo de Peliculas\n";
         std::cout << "0) Salir del programa\n";
-        std::cout << "Opción: ";
+        std::cout << "Opcion: ";
         std::cin >> opcion;
         std::cin.ignore(1000, '\n');
 
@@ -449,7 +449,7 @@ void menu_general() {
                 Dinarray<Cancion>* catalogo_canciones = new Dinarray<Cancion>();
                 cargar_demo_cancion(catalogo_canciones);
                 menu_busquedas_cancion(catalogo_canciones);
-                std::cout << "Saliendo del módulo de canciones...\n";
+                std::cout << "Saliendo del modulo de canciones...\n";
                 delete catalogo_canciones;
                 break;
             }
@@ -457,7 +457,7 @@ void menu_general() {
                 Dinarray<Pelicula>* catalogo_peliculas = new Dinarray<Pelicula>();
                 cargar_demo_pelicula(catalogo_peliculas);
                 menu_busquedas_pelicula(catalogo_peliculas);
-                std::cout << "Saliendo del módulo de películas...\n";
+                std::cout << "Saliendo del modulo de peliculas...\n";
                 delete catalogo_peliculas;
                 break;
             }
@@ -466,7 +466,7 @@ void menu_general() {
                 std::cout << "¡Gracias por usar el sistema! Hasta pronto.\n";
                 break;
             default:
-                std::cout << "Opción no válida. Inténtelo de nuevo.\n";
+                std::cout << "Opcion no válida. Intentelo de nuevo.\n";
         }
     }
 }
