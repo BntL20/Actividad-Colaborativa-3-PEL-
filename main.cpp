@@ -62,7 +62,7 @@ public:
 
     T& at_modificable(size_t pos) {
         if (pos >= size) {
-            throw std::out_of_range("Posicion invalida");
+            throw std::out_of_range("Posición inválida");
         }
         return data[pos];  // ← DEVUELVE REFERENCIA
     }
@@ -190,7 +190,7 @@ int buscar_por_genero_cancion(Dinarray<Cancion>* catalogo, std::string textoBusc
             if (resultados == 0) {
                 std::cout << "\nResultados por Genero:\n";
             }
-            std::cout << " - [" << c.titulo << "]  Album: " << c.album
+            std::cout << " - [" << c.titulo << "]  Álbum: " << c.album
                       << "  Grupo: " << c.grupo << "  Genero: " << c.genero << "\n";
             resultados++;
         }
@@ -208,8 +208,8 @@ int buscar_por_grupo(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
             if (resultados == 0) {
                 std::cout << "\nResultados por Grupo:\n";
             }
-            std::cout << " - [" << c.titulo << "]  Album: " << c.album
-                      << "  Grupo: " << c.grupo << "  Género: " << c.genero << "\n";
+            std::cout << " - [" << c.titulo << "]  Álbum: " << c.album
+                      << "  Grupo: " << c.grupo << "  Genero: " << c.genero << "\n";
             resultados++;
         }
     }
@@ -229,7 +229,7 @@ void cargar_demo_cancion(Dinarray<Cancion>* cat) {
     cat->insertar_final(Cancion("Abbey Road", "The Beatles", "Rock", "Something"));
 }
 
-// Método para el menú principal
+// Metodo para el menú principal
 void menu_busquedas_cancion(Dinarray<Cancion>* cat) {
     int opcion = -1;
     bool continuar = true;
@@ -288,11 +288,22 @@ public:
     std::string calidad;
     bool disponible;
 
-    Pelicula() : disponible(true) {}
-    Pelicula(std::string t, std::string g, std::string c, bool d = true)
-        : titulo(t), genero(g), calidad(c), disponible(d) {}
+    Pelicula() {
+        titulo = "";
+        genero = "";
+        calidad = "";
+        disponible = true;
+    }
+    Pelicula(std::string t, std::string g, std::string c, bool d = true) {
+        titulo = t;
+        genero = g;
+        calidad = c;
+        disponible = d;
+    }
 
-    void alquilar() { disponible = false; }
+    void alquilar() {
+        disponible = false;
+    }
 };
 
 // === BÚSQUEDAS ===
@@ -421,7 +432,7 @@ void menu_busquedas_pelicula(Dinarray<Pelicula>* cat) {
             }
 
             if (hits == 0 && opcion >= 1 && opcion <= 3) {
-                std::cout << "No se encontraron películas con ese criterio.\n";
+                std::cout << "No se encontraron peliculas con ese criterio.\n";
             }
         }
     }
@@ -457,13 +468,13 @@ void menu_general() {
                 Dinarray<Pelicula>* catalogo_peliculas = new Dinarray<Pelicula>();
                 cargar_demo_pelicula(catalogo_peliculas);
                 menu_busquedas_pelicula(catalogo_peliculas);
-                std::cout << "Saliendo del modulo de peliculas...\n";
+                std::cout << "Saliendo del modulo de películas...\n";
                 delete catalogo_peliculas;
                 break;
             }
             case 0:
                 continuar = false;
-                std::cout << "¡Gracias por usar el sistema! Hasta pronto.\n";
+                std::cout << "Saliendo del Sistema...\n";
                 break;
             default:
                 std::cout << "Opcion no válida. Intentelo de nuevo.\n";
@@ -471,7 +482,6 @@ void menu_general() {
     }
 }
 
-    // Programa principal
 int main() {
         menu_general();
     return 0;
