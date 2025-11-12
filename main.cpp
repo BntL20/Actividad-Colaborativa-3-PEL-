@@ -10,9 +10,9 @@
 template <typename T>
 class Dinarray {
 private:
-    T* data;         // bloque dinámico
-    size_t size;     // elementos usados
-    size_t capacity; // capacidad reservada
+    T* data;         // Puntero al bloque de memoria donde se almacenan los elementos
+    size_t size;     // Número de elementos actualmente almacenados
+    size_t capacity; // Capacidad máxima actual del array antes de necesitar redimensionarse
 
 public:
     // Constructor
