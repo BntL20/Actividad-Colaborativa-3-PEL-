@@ -1,8 +1,33 @@
-//**Hecho y comentado por Brent y Lucía
+/*
+===========================================================
+                 SISTEMA DE GESTIÓN MULTIMEDIA
+===========================================================
 
-// Recurso 1 - Catálogo de Música con Dinarray
-// Recurso 2 - Catálogo de Películas con Dinarray
-// Decripcion general del codigo:
+Descripción general:
+Este programa implementa un sistema de gestión multimedia
+compuesto por dos módulos principales:
+
+  • Recurso 1: Catálogo Musical
+  • Recurso 2: Catálogo Cinematográfico
+
+Ambos módulos permiten almacenar, consultar y buscar
+información dentro de sus respectivos catálogos mediante
+un menú interactivo por consola. Para ello, el programa
+utiliza una estructura dinámica propia basada en la clase
+plantilla Dinarray, que gestiona colecciones de datos sin
+dependencias de bibliotecas externas como std::vector.
+
+El sistema incluye también funciones auxiliares para el
+tratamiento de texto (normalización, búsqueda insensible
+a mayúsculas, etc.), necesarias para realizar búsquedas
+flexibles dentro de los catálogos.
+
+El menú principal unifica el acceso a ambos recursos y
+permite seleccionar el módulo deseado, realizar consultas
+o finalizar la ejecución del programa. El diseño del
+software sigue una estructura modular, clara y coherente,
+favoreciendo la reutilización de código y el mantenimiento.
+*/
 
 #include <iostream>
 #include <string>
@@ -66,34 +91,9 @@ public:
 
     T& at_modificable(size_t pos) {
         if (pos >= size) {
-            throw std::out_of_range("Posición inválida");
+            throw std::out_of_range("Posicion invalida");
         }
         return data[pos];  // ← DEVUELVE REFERENCIA
-    }
-};
-
-// Clase Cancion
-class Cancion {
-public:
-    std::string album;
-    std::string grupo;
-    std::string genero;
-    std::string titulo;
-
-    // Constructor vacío
-    Cancion() {
-        album = "";
-        grupo = "";
-        genero = "";
-        titulo = "";
-    }
-
-    // Constructor con parámetros
-    Cancion(std::string a, std::string g, std::string ge, std::string t) {
-        album = a;
-        grupo = g;
-        genero = ge;
-        titulo = t;
     }
 };
 
@@ -146,6 +146,31 @@ bool contiene_subcadena_insensible(std::string texto, std::string patron) {
     return false;
 }
 
+// Clase Cancion
+class Cancion {
+public:
+    std::string album;
+    std::string grupo;
+    std::string genero;
+    std::string titulo;
+
+    // Constructor vacío
+    Cancion() {
+        album = "";
+        grupo = "";
+        genero = "";
+        titulo = "";
+    }
+
+    // Constructor con parámetros
+    Cancion(std::string a, std::string g, std::string ge, std::string t) {
+        album = a;
+        grupo = g;
+        genero = ge;
+        titulo = t;
+    }
+};
+
 // Búsqueda por campo para CANCIONES
 
 // Búsqueda por título
@@ -197,7 +222,7 @@ int buscar_por_genero_cancion(Dinarray<Cancion>* catalogo, std::string textoBusc
             if (resultados == 0) {
                 std::cout << "\nResultados por Genero:\n";
             }
-            std::cout << " - [" << c.titulo << "]  Álbum: " << c.album
+            std::cout << " - [" << c.titulo << "]  Album: " << c.album
                       << "  Grupo: " << c.grupo << "  Genero: " << c.genero << "\n";
             resultados++;
         }
@@ -216,7 +241,7 @@ int buscar_por_grupo(Dinarray<Cancion>* catalogo, std::string textoBuscado) {
             if (resultados == 0) {
                 std::cout << "\nResultados por Grupo:\n";
             }
-            std::cout << " - [" << c.titulo << "]  Álbum: " << c.album
+            std::cout << " - [" << c.titulo << "]  Album: " << c.album
                       << "  Grupo: " << c.grupo << "  Genero: " << c.genero << "\n";
             resultados++;
         }
